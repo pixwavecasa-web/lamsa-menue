@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lamsa – Maison de Broderie Fine</title>
+    <meta name="description" content="Maison de broderie fine à l'esprit moderne. Haute couture, décoration d'intérieur et créations sur-mesure d'exception." />
+    <meta property="og:title" content="Lamsa – Maison de Broderie Fine" />
+    <meta property="og:description" content="Maison de broderie fine à l'esprit moderne. Haute couture, décoration d'intérieur et créations sur-mesure d'exception." />
+    <link rel="icon" href="/assets/ChatGPT%20Image%20Sep%207_%202026_%2008_50_45%20PM-BeqSD4wb.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var currentFetch = originalFetch;
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (!desc || desc.configurable || (!desc.set && !desc.writable)) {
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return currentFetch; },
+              set: function(val) { currentFetch = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            var protoDesc = Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+            if (protoDesc && (!protoDesc.set && !protoDesc.writable) && protoDesc.configurable) {
+              Object.defineProperty(Window.prototype, 'fetch', {
+                get: function() { return currentFetch; },
+                set: function(val) { currentFetch = val; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          }
+        } catch (err) {}
+
+        function isIgnored(val) {
+          if (!val) return false;
+          var str = '';
+          if (typeof val === 'string') {
+            str = val;
+          } else if (val && typeof val === 'object') {
+            str = (val.message || '') + ' ' + (val.stack || '') + ' ' + (val.name || '');
+            try { str += ' ' + String(val); } catch (e) {}
+          } else {
+            try { str = String(val); } catch (e) { str = ''; }
+          }
+          return str.indexOf('Cannot set property fetch') !== -1 ||
+                 str.indexOf('Cannot redefine property: fetch') !== -1 ||
+                 str.indexOf('Missing property') !== -1 ||
+                 str.indexOf('splinecode file is more recent') !== -1 ||
+                 str.indexOf('Missing "on') !== -1 ||
+                 str.indexOf('Multiple instances of Three.js') !== -1 ||
+                 str.indexOf('Spline onLoad handler notice') !== -1 ||
+                 str.indexOf('ResizeObserver loop') !== -1 ||
+                 str.indexOf('THREE.') !== -1;
+        }
+
+        // Intercept console.error to filter out benign library notices
+        if (typeof console !== 'undefined') {
+          var origError = console.error;
+          console.error = function() {
+            for (var i = 0; i < arguments.length; i++) {
+              if (isIgnored(arguments[i])) {
+                return;
+              }
+            }
+            return origError.apply(console, arguments);
+          };
+
+          var origWarn = console.warn;
+          console.warn = function() {
+            for (var i = 0; i < arguments.length; i++) {
+              if (isIgnored(arguments[i])) {
+                return;
+              }
+            }
+            return origWarn.apply(console, arguments);
+          };
+        }
+
+        window.addEventListener('error', function(event) {
+          if (event && (isIgnored(event.message) || isIgnored(event.error))) {
+            if (event.preventDefault) event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(event) {
+          if (event && (isIgnored(event.reason) || (event.reason && isIgnored(event.reason.message)))) {
+            if (event.preventDefault) event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        var origOnError = window.onerror;
+        window.onerror = function(msg, url, lineNo, colNo, error) {
+          if (isIgnored(msg) || isIgnored(error)) {
+            return true;
+          }
+          if (origOnError) return origOnError.apply(this, arguments);
+        };
+
+        var origOnUnhandledRejection = window.onunhandledrejection;
+        window.onunhandledrejection = function(event) {
+          if (event && (isIgnored(event.reason) || (event.reason && isIgnored(event.reason.message)))) {
+            return true;
+          }
+          if (origOnUnhandledRejection) return origOnUnhandledRejection.apply(this, arguments);
+        };
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-EQNrgmGa.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BrhuHtd7.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
